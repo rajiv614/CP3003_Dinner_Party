@@ -1,0 +1,74 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+  <title>My Parse App</title>
+  <meta name="description" content="My Parse App">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+</head>
+
+<body>
+  
+  <div id="main">
+ 
+      <button onClick = "login();">Login</button>
+      
+  </div>
+
+  <script type="text/javascript">
+    Parse.initialize("mOtvpjGrdBIUBBpujn6llVOMch917NWmvZG4phYE", "ZUMGy8u0ko4oqPhWH2CwL5GqXs6kRjSjaiKTtRIT");
+  
+      window.fbAsyncInit = function() {
+        Parse.FacebookUtils.init({
+          appId      : '804484489650517',
+          cookie     : true,
+          xfbml      : true,
+          version    : 'v2.3'
+        });
+    
+    
+          
+ 
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+   
+      function login() {
+               Parse.FacebookUtils.logIn("user_friends,email,public_profile", {
+  success: function(user) {
+    if (!user.existed()) {
+      alert("User signed up and logged in through Facebook!");
+    } else {
+      alert("User logged in through Facebook!");
+        FB.api('/me/friends',{fields:"name,id"}, function(response) {
+        // FB.api('/me/',{fields:"name,email,picture,id,friends"}, function(response) {
+  console.log(response);
+        /*var events ={};
+            events.eName
+            events.eDescription
+            events.eDate
+            events.etime 
+            events.*/
+            
+});
+
+    }
+  },
+  error: function(user, error) {
+    alert("User cancelled the Facebook login or did not fully authorize.");
+  }
+});}
+  </script>
+</body>
+
+</html>
