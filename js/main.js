@@ -17,7 +17,7 @@ function saveUserInfo(response) {
     currentUser.save(null, {
         success: function(currentUser) {
             console.log("saved user info successfully ");
-            location.pathname = 'html/completeProfile.html';
+            location.pathname = 'CP3003_Dinner_Party/html/completeProfile.html';
         },
         error: function(currentUser, error) {
 
@@ -307,7 +307,7 @@ function saveProfile() {
             // will get sent to the cloud. playerName hasn't changed.
             alert("saved successfully")
                 // location.pathname = 'html/profile.html';
-            location.pathname = 'html/home.html';
+            location.pathname = 'CP3003_Dinner_Party/html/home.html';
         },
         error: function(currentUser, error) {
             alert("Failed to save food preferences   . " + error.message);
@@ -480,7 +480,7 @@ function viewEvent(eID, invited) {
     eventLoad.invited = invited;
     eventLoad.eID = eID;
     window.localStorage.setItem("viewEvent", JSON.stringify(eventLoad));
-    location.pathname = 'html/viewEvent.html';
+    location.pathname = 'CP3003_Dinner_Party/html/viewEvent.html';
 
 }
 
@@ -529,7 +529,7 @@ function rsvpButton(rsvp, eventObj) {
         if (index > -1) {
             eventObj.attributes.invited.splice(index, 1);
             eventObj.save();
-            location.pathname = 'html/Home.html'
+            location.pathname = 'CP3003_Dinner_Party/html/Home.html'
                 //current FB ID Delete }
         }
 
@@ -666,7 +666,7 @@ function createEvent2() {
     var fData = JSON.stringify(formData);
     // var fData = formData;
     window.localStorage.setItem("eventObj", fData);
-    location.pathname = 'html/createEvent2.html';
+    location.pathname = 'CP3003_Dinner_Party/html/createEvent2.html';
     //formData.inviteList = friendList;    
 }
 
@@ -725,7 +725,7 @@ function saveEvent(eventObj) {
                         console.log(grocerySuc.id);
 
                         if (i == (eventObj.groceryArr.length - 1)) {
-                            location.pathname = 'html/home.html';
+                            location.pathname = 'CP3003_Dinner_Party/html/home.html';
                         }
 
                     },
@@ -739,7 +739,7 @@ function saveEvent(eventObj) {
 
             setTimeout(function() {
                 alert("Event Saved")
-                location.pathname = 'html/home.html';
+                location.pathname = 'CP3003_Dinner_Party/html/home.html';
             }, 2000);;
         },
         error: function(dinnerEvent, error) {
@@ -753,5 +753,5 @@ function saveEvent(eventObj) {
 //Handles Log out
     function logOut () {
         Parse.User.logOut();
-        location.pathname ='index.html';
+        location.pathname ='CP3003_Dinner_Party/index.html';
     }
