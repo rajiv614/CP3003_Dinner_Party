@@ -529,7 +529,7 @@ function rsvpButton(rsvp, eventObj) {
         if (index > -1) {
             eventObj.attributes.invited.splice(index, 1);
             eventObj.save();
-            location.pathname = 'CP3003_Dinner_Party/html/Home.html'
+            location.pathname = 'CP3003_Dinner_Party/html/home.html'
                 //current FB ID Delete }
         }
 
