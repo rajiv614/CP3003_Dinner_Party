@@ -12,7 +12,7 @@ function saveUserInfo(response) {
     currentUser.set("name", response.name);
     currentUser.set("FBid", response.id);
     currentUser.set("email", response.email);
-    currentUser.set("profilePic", response.profilePic.data.url);
+    currentUser.set("profilePic", response.picture.data.url);
     window.localStorage.setItem("uFriends", JSON.stringify(response.friends.data));
     currentUser.save(null, {
         success: function(currentUser) {
