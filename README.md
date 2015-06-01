@@ -20,19 +20,21 @@
 
 <h2>Test cases/ Navigation</h2> 
 
-	•	Log in using credentials provided 
+	•	Log in using credentials provided in Docs
 
-	•	 <b> TASK/Case </b> = View Upcoming event and commit groceries Flow
+	
+
+<h3> <b> TASK/Case </b> = View Upcoming event and commit groceries Flow </h3>
 
 1. Click on any event in the ‘upcoming events’ list on home.html
 Expected Result ==> Will navigate to viewEvent.html
 
 2. On viewEvent page click on an item in the Grocery List and press the ‘’commit to bring selected grocery’ button
- Expected Result ==> alert will appear with the following text - ‘Success: Host has been notified’
+ Expected Result ==> alert will appear with the following text - ‘Success: Host has been notified’ . <br>
 			    On returning to home.html (by pressing ‘home’ in navbar)  the selected grocery will now appear under the reminders panel with the event name and date. 
 
 
-	•	<b> TASK/Case </b>  = View new invite  and accept invitation Flow
+<h3><b> TASK/Case </b>  = View new invite  and accept invitation Flow </h3>
 
 1. Click on an event in the ‘Invitations’ panel on home.html 
 Expected Result ==> Will navigate to viewEvent.html
@@ -41,17 +43,17 @@ Expected Result ==> Will navigate to viewEvent.html
 Expected Result ==> Join & Decline buttons will disappear since user has accepted/ declined.
 
 3. Press the ‘Home button’ on the top-right on the nav-bar  
-Expected Result ==> Will navigate to Home.html
+Expected Result ==> Will navigate to Home.html <br >
 			    On the home/ dashboard page the event which was clicked in step 1 will no longer be under the invitations panel but will now be in the ‘upcoming events ’ panel.
 
 
-•	<b> TASK/Case </b> = View my Profile
-1. Click on ‘’My Profile’ on the top right navigation bar 
-Expected Result ==> Will navigate to profile.html
+<h3><b> TASK/Case </b> = View my Profile</h3>
+1. Click on ‘’My Profile’ on the top right navigation bar <br>
+Expected Result ==> Will navigate to profile.html - 
 			    Page will contain user image, food preferences, food restrictions & Friend List.
 
 
-•	<b> TASK/Case </b> = Create Event Flow
+<h3><b> TASK/Case </b> = Create Event Flow </h3>
 
 1. Click on ‘’ Create Event’’ button on the top right Nav Bar
 Expected Result ==> Will navigate to createEvent.html
@@ -62,7 +64,7 @@ Expected Result ==> Will navigate to createEvent.html
 Expected Result ==> Name of the selected friend will be appended to ‘Invite List ’ Box
 
 4. Press the ‘Add  food options’ button 
-Expected Result ==> Will navigate to createEvent2.html
+Expected Result ==> Will navigate to createEvent2.html . - 
 			    On createEvent2.html an  accordion containing ‘Cuisine Preferences’ and ‘Dietary Restrictions’ of the users invited in Step 3 will be displayed so that user can set the menu accordingly .
 
 5. On createEvent2.html enter a name of a dish in the dish text field and press the add button. 
@@ -75,21 +77,24 @@ Expected Result ==> A new tab will open in the browser which will display the re
 Expected Result ==> The grocery item entered by the user will appear in the Grocery List.
 
 8.  Press ‘Create Event’ button
-Expected Result ==> An alert box with text “Success” will appear and the user will be navigated to home.html (Dashboard)
-			    On Home.html (dashboard ) the event created in this step will appear under the ‘’hosting’ tab under the ‘Upcoming Events’ Panel.
+Expected Result ==> 
+<ul> <li>An alert box with text “Success” will appear and the user will be navigated to home.html (Dashboard) </li>
+			    <li> On Home.html (dashboard ) the event created in this step will appear under the ‘’hosting’ tab under the ‘Upcoming Events’ Panel. </li> </ul>
 
 
-•	<b> TASK/Case </b>  = View Event hosted by current user  (Host View)
+<h3> <b> TASK/Case </b>  = View Event hosted by current user  (Host View) </h3>
 
 1. Click on any event under the ‘’Hosting Tab’ in the ‘Upcoming Events’ panel on home.html (Dashboard)
-Expected Result ==> Will navigate to viewEvent.html
-			    Will display event information
-			    Will contain a panel called ‘Who is Coming’ which will contain 2 tabs 
-			    First tab which is called ‘attending ’ will contain a list of guest who have confirmed their attendance
-			    Second Tab called ‘invited’ will contain a list of users who have been invited but have not yet responded to the invitation.
-			    The ‘Pending Grocery List’ will contain a list of grocery items that no guest has committed to bring yet. 
-			    Other grocery items that a guest has already committed to bring will not be visible in this list. 	
-
+Expected Result ==> <br> 
+				<ul>
+				<li> Will navigate to viewEvent.html </li>
+			    <li> Will display event information </li>
+			    <li>Will contain a panel called ‘Who is Coming’ which will contain 2 tabs </li>
+			    <li>First tab which is called ‘attending ’ will contain a list of guest who have confirmed their attendance</li>
+			    <li>Second Tab called ‘invited’ will contain a list of users who have been invited but have not yet responded to the invitation.</li>
+			    <li> The ‘Pending Grocery List’ will contain a list of grocery items that no guest has committed to bring yet. </li>
+			   <li> Other grocery items that a guest has already committed to bring will not be visible in this list. 	</li>
+</ul>
 
 
 
