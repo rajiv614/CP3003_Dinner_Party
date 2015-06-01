@@ -713,7 +713,7 @@ function saveEvent(eventObj) {
 
     dinnerEvent.save(null, {
         success: function(dinnerEvent) {
-
+            
             for (var i = 0; i < eventObj.groceryArr.length; i++) {
                 var Grocery = Parse.Object.extend("groceryList");
                 var groceryList = new Grocery();
@@ -738,6 +738,7 @@ function saveEvent(eventObj) {
             }
 
             setTimeout(function() {
+                alert("Event Saved")
                 location.pathname = 'html/home.html';
             }, 2000);;
         },
