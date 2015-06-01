@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+         <title>Event</title>
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+        <script type="text/javascript" src="../js/main.js"></script>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+        rel="stylesheet" type="text/css">
+        <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css"
+        rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../css/styles.css">
+        <script type="application/javascript"> var x = window.localStorage.getItem("viewEvent")
+        var y= JSON.parse(x);
+            
+      
+        retrieveEvent(y.eID);
+          
+        </script>
+    </head>
+    
+    <body>
+        <div class="navbar navbar-default navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand"><img height="60" alt="Brand" src="../img/photo2.png" class="img-rounded"></a>
+                    <a class="hidden-xs navbar-brand"><label style="color:white; font-size:35px; ">Your Dinner Event</label>
+                </a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <a class="navbar-brand">
+                        </a>
+                         <li>
+                             <a class="navbar-brand"> </a>
+                            <a href="../html/Home.html">Home</a>
+                        </li>
+                        <li>
+                            
+                           
+                            <a href="../html/profile.html">My Profile</a>
+                        </li>
+                        <li>
+                            <a href="../html/createEvent.html">Create Event</a>
+                        </li>
+                       
+                        <li>
+                            <a href="#" onClick = 'logOut();'>Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="section bg-img" >
+            <div class="container" >
+                <div class="row" style="background-color: floralwhite">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <img id="eventPic" height="150px" src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png"
+                                >
+                            </div>
+                            <div class="col-md-7">
+                                <label id="eventName" style="font-size:45px">PlaceHolder</label>
+                            </div>
+                        </div>
+                        <span class="pageFonts" style="font-size:21px; color:cornflowerblue">Host:</span>
+                        <label style="font-size:25px" id="hostName"></label>
+                        <br>
+                        <br>
+                        <span style="font-size:21px; color:cornflowerblue">Description:</span>
+                        <label style="font-size:25px; " id="eventDesc"></label>
+                        <br>
+                        <br>
+                        <span style="font-size:21px; color:cornflowerblue">Address:</span>
+                        <label style="font-size:25px" id="eventAdd"></label>
+                        <br>
+                        <br>
+                        <span style="font-size:21px; color:cornflowerblue">Date/Time:</span>
+                        <label style="font-size:25px" id="time" ></label>
+                        <br>
+                        <br>
+                        <div class="panel panel-danger">
+                            <!-- Default panel contents -->
+                            <div class="panel-heading">Menu</div>
+                            <!-- List group -->
+                            <div class="list-group" id="eventPageMenu" style='min-height:200px'>
+         
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="btn-group btn-group-justified btn-group-lg" id="bGroup" style="margin-top:20px;">
+                            <a href="#" onClick ="rsvpNow();"  class="btn btn-success">Join</a>
+                            
+                            <a href="#" class="btn btn-danger" style ="margin-left:20px">Decline</a>
+                        </div>
+                        <div class="panel panel-primary hide" id="attList" style="margin-top:35px">
+                            <!-- Default panel contents -->
+                            <div class="panel-heading">Who is coming?</div>
+                            
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a data-toggle="tab"  href="#attendingList">Attending<span id="attTab"></span></a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#invitedGuestList" >Invited <span id="invTab" ></span></a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div id="attendingList" class="tab-pane fade in active">
+                                    <div class="list-group" id="friendRSVP" ></div>
+                                </div>
+                                <div id="invitedGuestList" class="tab-pane fade">
+                                    <div class="list-group" id="invitedGList" ></div>
+                                </div>
+                            </div>
+                            <!-- List group -->
+                        </div>
+                        <h3 id="groLabel">Grocery List</h3>
+                        <div class="panel panel-primary">
+                            <!-- Default panel contents -->
+                            <!-- List group -->
+                            <div class="list-group " id="eventPageGrocery" style='min-height:200px'>
+                                
+                            </div>
+                        </div>
+                        <a class="btn btn-block btn-success" onClick="commitGroc();">Commit to bring selected Grocery</a>
+                        <i> Click on a Grocery item on the list and then press the <b>'Commit to bring selected Grocery'</b> button to notify the host 
+                    </i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+<script>
+    var x = window.localStorage.getItem("viewEvent")
+        var y= JSON.parse(x);
+            
+        if(y.invited == false) {
+            alert(y.invited);
+        $("#bGroup").hide();
+        }
+    </script>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+         <title>Add Food Options</title>
+        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/main.js"></script>
+        <link href="../css/styles.css" type="text/css" rel="stylesheet">
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+        rel="stylesheet" type="text/css">
+       
+    </head>
+    
+    <body class = 'bg-img'>
+        <div class="navbar navbar-default navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand"><img height="60" alt="Brand" src="../img/photo2.png" class="img-rounded"></a>
+                    <a class="hidden-xs navbar-brand"><label style="color:white; font-size:35px; ">Your Dinner Event</label>
+                </a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        
+                        <li>
+                           
+                            <a href="../html/Home.html">Home</a>
+                        </li>
+                        <li>
+                            
+                            <a href="../html/profile.html">My Profile</a>
+                        </li>
+                        <li>
+                            <a href="../html/createEvent.html">Create Event</a>
+                        </li>
+                        
+                        <li>
+                            <a href="#" onClick = 'logOut();'>Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="page-header text-center text-primary" style="margin-top:-25px">
+                            <h1>Food Options
+                                <br>
+                                <small style='color:beige'>Set menu based on guest preferences</small>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container" style='background-color:white'>
+                <div class="panel-group" id="accordion" style="margin-top:-25px;">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Preferred Cuisines<span style='font-size:10px' class='pull-right'> Click on title to collapse/expand</span></a>
+                            </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse in">
+                            <div class="panel-body">Here is a list of what % of your guests prefer which cuisine:
+                                <br>
+                                <ul id="prefacc"></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Dietary Restrictions<span style='font-size:10px' class='pull-right'> Click on title to collapse/expand</span> </a>
+                            </h4>
+                        </div>
+                        <div id="collapse2" class="panel-collapse collapse in">
+                            <div class="panel-body">Here is a list of all the dietary restrictions of the guests you have  invited :
+                                <br>
+                                <ul id="foodresacc"></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2>Add Dishes to the Menu</h2>
+                            <br>
+                            <span style="font-size:20px">Dish:</span>
+                            <input type="text" size="25" style="margin-left:10px" id="menuText">
+                            <a class="btn btn-primary " onclick="addDish();" style="margin-left:30px">Add</a>
+                            <h3>MENU</h3>
+                            <div class="panel panel-default">
+                                <!-- Default panel contents -->
+                                <!-- List group -->
+                                <div class="list-group " style="min-height:100px;" id="menuLists"></div>
+                            </div>
+                            <button onclick="getRecipe();">Search Recipe</button>
+                            <br>* Click on a dish from the list and then press the 'Search Recipe' button
+                            to look up recipe.</div>
+                        <div class="col-md-6">
+                            <h2>Add Groceries needed</h2>
+                            <br>
+                            <span style="font-size:20px">Grocery:</span>
+                            <input type="text" size="25" style="margin-left:10px" id="groceryText">
+                            <a class="btn btn-primary " onclick="addGrocery();" style="margin-left:30px">Add</a>
+                            <h3>Grocery List</h3>
+                            <div class="panel panel-primary">
+                                <!-- Default panel contents -->
+                                <!-- List group -->
+                                <div class="list-group " id="groceryLists" style="min-height:100px;"></div>
+                            </div>
+                            <i>*Guests you have invited can opt to bring groceries from this list</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <div class="container">
+                    <div class="row" style="background-color:white">
+                        <div class="col-md-12">
+                            <a href="#" class="btn btn-lg btn-primary" style="margin-left:45%; margin-bottom:10px" id="createEventBtn"> Create Event</a>
+                        </div>
+                    </div>
+                    <script type="application/javascript">
+                        $("#createEventBtn").on( "click", createEvent );
+                    </script>
+                </div>
+            </div>
+            
+            <script type="application/javascript">
+                var v = window.localStorage.getItem("eventObj");
+                    v= JSON.parse(v);
+                    loadFoodPref(v.invited);
+            </script>
+            
+        </div>
+        <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
+        rel="stylesheet" type="text/css">
+    </body>
+
+</html>

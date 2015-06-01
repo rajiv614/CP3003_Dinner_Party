@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>Profile</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+        <script type="text/javascript" src="../js/main.js"></script>
+        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+        <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+        rel="stylesheet" type="text/css">
+        <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css"
+        rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../css/styles.css">
+       
+    </head>
+    
+    <body class='bg-img'>
+        <script type="application/javascript">
+            Parse.initialize("mOtvpjGrdBIUBBpujn6llVOMch917NWmvZG4phYE", "ZUMGy8u0ko4oqPhWH2CwL5GqXs6kRjSjaiKTtRIT");
+   
+        </script>
+        <div class="navbar navbar-default navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand"><img height="60" alt="Brand" src="../img/photo2.png" class="img-rounded"></a>
+                    <a class="hidden-xs navbar-brand"><label style="color:white; font-size:35px; ">Your Dinner Event</label>
+                </a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <a class="navbar-brand">
+                        </a>
+                          <li>
+                              <a class="navbar-brand"></a>
+                            <a href="../html/Home.html">Home</a>
+                        </li>
+                        <li>
+                            
+                            
+                             <a href="../html/profile.html">My Profile</a>
+                        </li>
+                        <li>
+                            <a href="../html/createEvent.html">Create Event</a>
+                        </li>
+                      
+                        <li>
+                            <a href="#" onClick = 'logOut();'>Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="row" style='background-color:white;'>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img style = "height:150px" id="profilepic" src="" class="img-responsive">
+                            </div>
+                            <div class="col-md-7">
+                                <label id="profileName" class="pageFonts"></label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class= 'col-md-6'>
+                        <label class="pageFonts">Favorite Cuisines:</label>
+                        <ul id="favCuisine">
+                        
+                        </ul>
+                        <br>
+                            </div>
+                        <div class="col-md-6">
+                        <label class="pageFonts">Food Restrictions:</label>
+                        <ul id="foodRestrictions">
+                         
+                        </ul>
+                    </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel panel-primary" style='margin-top:20px;'>
+                            <!-- Default panel contents -->
+                            <div class="panel-heading">Friends</div>
+                            <!-- List group -->
+                            <div class="list-group" id="evFriendList" style = "min-height:150px; overflow-y:auto;">
+                    
+          
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     <script>
+        loadProfile();
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,99 @@
+.pageFonts {
+font-size: 25px;
+}
+
+.bg-img {
+background-image: url(http://www.hugscafe.org/wp-content/uploads/2014/05/157_1background3.jpg) ;
+background-size: cover;
+background-repeat: no-repeat;
+}
+body {height:100%;}
+.groceryEvent{
+font-size: 11px;
+}
+.headingFonts {
+font-size: 45px;
+}
+
+time.icon
+{
+  font-size: .5em; 
+  display: block;
+  position: relative;
+  width: 6em;
+  height: 6em;
+  background-color: #fff;
+  
+  border-radius: 0.6em;
+  box-shadow: 0 1px 0 #bdbdbd, 0 2px 0 #fff, 0 3px 0 #bdbdbd, 0 4px 0 #fff, 0 5px 0 #bdbdbd, 0 0 0 1px #bdbdbd;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: rotate(0deg) skewY(0deg);
+  -webkit-transform-origin: 50% 10%;
+  transform-origin: 50% 10%;
+margin-right: 10px;
+
+}
+
+time.icon *
+{
+  display: block;
+  width: 100%;
+  font-size: 1em;
+  font-weight: bold;
+  font-style: normal;
+  text-align: center;
+}
+
+time.icon strong
+{
+  position: absolute;
+  top: 0;
+  color: #fff;
+  background-color: #fd9f1b;
+  border-bottom: 1px dashed #f37302;
+  box-shadow: 0 2px 0 #fd9f1b;
+}
+
+time.icon em
+{
+  position: absolute;
+  bottom: 0.1em;
+  color: #fd9f1b;
+}
+
+time.icon span
+{
+  width: 100%;
+  font-size: 2.2em;
+  letter-spacing: -0.05em;
+  padding-top: 1em;
+  color: #2f2f2f;
+} 
+.yes{
+  background: #e9eaed;
+  border: 1px solid #9daccb;
+  -webkit-border-radius: 2px;
+  color: #1e2d4c;
+  cursor: default;
+  display: block;
+  float: left;
+  height: 14px;
+  margin: 0 4px 4px 0;
+  padding: 0 3px;
+  position: relative;
+  white-space: nowrap;
+}
+
+.listItemMargin {
+margin-left: 15px;
+}
+
+
+
+
+h1
+{
+  margin: 0;
+  font-weight: normal;
+}

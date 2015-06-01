@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+         <title>Dashboard</title>
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+        rel="stylesheet" type="text/css">
+        <link href="../css/styles.css" rel="stylesheet" type="text/css">
+        <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css"
+        rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+        <script type="text/javascript" src="../js/main.js"></script>
+        <script type="text/javascript">
+            retrieveDashboard();
+        </script>
+    </head>
+    
+    <body class='bg-img'>
+        <div class="navbar navbar-default navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand"><img height="60" alt="Brand" src="../img/photo2.png" class="img-rounded"></a>
+                    <a class="hidden-xs navbar-brand"><label style="color:white; font-size:35px; ">Your Dinner Event</label>
+                </a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <a class="navbar-brand">
+                        </a>
+                         <li>
+                              <a class="navbar-brand"> </a>
+                            <a href="../html/Home.html">Home</a>
+                        </li>
+                        <li>
+                           
+                           
+                            <a href="../html/profile.html">My Profile</a>
+                        </li>
+                        <li>
+                            <a href="../html/createEvent.html">Create Event</a>
+                        </li>
+                       
+                        <li>
+                            <a href="#" onClick = 'logOut();' >Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="section text-center">
+            <div class="background-image" ></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="page-header">
+                            <h1 class='text-inverse'>Event Dashboard
+                                <small style ="color:white;">
+                                    <br>manage your upcoming events & respond to invites</small>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section" >
+            <div class="container">
+                <div class="row" style='margin-top:0px'>
+                    <div class="col-md-6" >
+                        <div class="panel panel-primary">
+                            <!-- Default panel contents -->
+                            <div class="panel-heading">Upcoming Events</div>
+                            <!-- Centered Tabs -->
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a data-toggle="tab" href="#attendingList">Attending</a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#hostingList">Hosting</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div id="attendingList" class="tab-pane fade in active">
+                                    <div class="list-group" id="upcomingList" style="min-height:160px; max-height: 200px; overflow-y:auto;"></div>
+                                </div>
+                                <div id="hostingList" class="tab-pane fade">
+                                    <div class="list-group" id="hostList" style="min-height:160px;  max-height: 200px; overflow-y:auto;"></div>
+                                </div>
+                            </div>
+                            <!-- List group -->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-primary">
+                            <!-- Default panel contents -->
+                            <div class="panel-heading">New Invites</div>
+                            <!-- List group -->
+                            <div class="list-group" id="invitedlist" style="min-height:200px; max-height: 250px; overflow-y:auto;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel panel-primary">
+                            <!-- Default panel contents -->
+                            <div class="panel-heading">Recent Events</div>
+                            <!-- List group -->
+                            <div class="list-group" id="recentList" style="min-height:200px; max-height:250px; overflow-y:auto;"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-primary">
+                            <!-- Default panel contents -->
+                            <div class="panel-heading">Reminders</div>
+                            <!-- List group -->
+                            <div class="list-group" id="reminderList" style="min-height:200px; max-height:250px; overflow-y:auto;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

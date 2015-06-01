@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Create Event</title>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
+        rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script type="text/javascript" src="../js/main.js"></script>
+        <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment-with-locales.min.js"></script>
+        <script type="application/javascript" src="../js/lib/jquery.tagsinput.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/jquery.tagsinput.css">
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+        rel="stylesheet" type="text/css">
+        <link href="../css/jquery-min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../css/styles.css">
+        <script>
+            // $(function () {
+                        $(document).ready(function() {
+            loadFriends();
+        
+        });
+        </script>
+    </head>
+    
+    <body class="bg-img">
+        <div class="navbar navbar-default navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand"><img height="60" alt="Brand" src="../img/photo2.png" class="img-rounded"></a>
+                    <a class="hidden-xs navbar-brand"><label style="color:white; font-size:35px; ">Your Dinner Event</label>
+                </a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <a class="navbar-brand">
+                        </a>
+                          <li>
+                              <a class="navbar-brand">
+                            </a>
+                            <a href="../html/Home.html">Home</a>
+                        </li>
+                        <li>
+                            
+                            <a href="../html/profile.html">My Profile</a>
+                        </li>
+                        <li>
+                            <a href="../html/createEvent.html">Create Event</a>
+                        </li>
+                      
+                        <li>
+                            <a href="#" onClick = 'logOut();'>Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="background-image section text-center" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="page-header text-inverse">
+                            <h1 style="color: cornsilk">Create Event
+                                <small style="color:white;">
+                                    <br>Invite your friends , set food options etc</small>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="row" style= "background-color:white">
+                    <div class="col-md-6">
+                        <span style="font-size:25px; margin-top:20px;">Name:</span>
+                        <input id="evName" type="text" size="50px" style="margin-left:70px; margin-top:20px;">
+                        <br>
+                        <br>
+                        <span style="font-size:25px; margin-top:20px;">Description:</span>
+                        <input type="text" id="evDesc" size="50" style="margin-left:10px; margin-top:20px;">
+                        <br>
+                        <br>
+                        <span style="font-size:25px; margin-top:20px;">Address:</span>
+                        <input type="text" size="50" id="evAddr" style="margin-left:45px; margin-top:20px;">
+                        <br>
+                        <br>
+                        <span style="font-size:25px; margin-top:20px;">Date/Time:</span>
+                        <input type="text"  id="evDT" size="25" class="form-control"
+                        style="margin-left:10px; margin-top:20px; width:75%">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-primary" id="searchlist" style='margin-top:20px;'>
+                            <!-- Default panel contents -->
+                            <div class="panel-heading">Friend List</div>
+                            <!-- List group -->
+                            <div class="list-group" id="evFriendList" style="max-height:220px; overflow-y:auto; "></div>
+                            
+                            <!--script type="application/javascript"> $('#evFriendList').btsListFilter('#searchinput', {delay:500,itemChild: 'span'});</script-->
+                        </div>
+                       <i>Click on  friends you wish to invite</i>
+                        <form>
+                            <p>
+                                <label>Invite List:</label>
+                                <input class="col-md-4 .form-control tags"  type="text "
+                                id="friendTags">
+                            </p>
+                            <script type="application/javascript">
+                                $('#friendTags').tagsInput({width:'auto','defaultText': ''});
+                            </script>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="row" style='background-color:white'>
+                    <div class="col-md-6" style="margin-bottom:20px;">
+                        <span style="margin-left:20px" class="pull-right">OR</span>
+                        <a class="btn btn-primary pull-right" href="#" onClick='wip();'>Create Event</a>
+                    </div>
+                    <div class="col-md-6">
+                        <a class="btn btn-primary" onclick="createEvent2();">Add Food Options &gt;&gt;&gt;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="application/javascript" src="../js/lib/jquery.datetimepicker.js"></script>
+        <link rel="stylesheet" type="text/css" href="../js/lib/jquery.datetimepicker.css">
+        <script>
+            $('#evDT').datetimepicker();
+        </script>
+    </body>
+
+</html>

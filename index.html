@@ -1,74 +1,148 @@
-<!doctype html>
-<head>
-  <meta charset="utf-8">
-
-  <title>My Parse App</title>
-  <meta name="description" content="My Parse App">
-  <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/styles.css">
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
-</head>
-
-<body>
-  
-  <div id="main">
- 
-      <button onClick = "login();">Login</button>
-      
-  </div>
-
-  <script type="text/javascript">
-    Parse.initialize("mOtvpjGrdBIUBBpujn6llVOMch917NWmvZG4phYE", "ZUMGy8u0ko4oqPhWH2CwL5GqXs6kRjSjaiKTtRIT");
-  
-      window.fbAsyncInit = function() {
-        Parse.FacebookUtils.init({
-          appId      : '804484489650517',
-          cookie     : true,
-          xfbml      : true,
-          version    : 'v2.3'
-        });
+<!DOCTYPE html>
+<html>
     
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+        rel="stylesheet" type="text/css">
+        <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css"
+        rel="stylesheet" type="text/css">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
+        rel="stylesheet" type="text/css">
+        <script>
+            // Load this when the DOM is ready
+            $(function(){
+              // You used .myCarousel here. 
+              // That's the class selector not the id selector,
+              // which is #myCarousel
+                if (Parse.User.current()) {
+                location.pathname = 'html/Home.html';
+                }
+              $('#carousel-example').carousel();
+            });
+        </script>
+    </head>
     
-          
- 
-      };
-
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-   
-      function login() {
-               Parse.FacebookUtils.logIn("user_friends,email,public_profile", {
-  success: function(user) {
-    if (!user.existed()) {
-      alert("User signed up and logged in through Facebook!");
-    } else {
-      alert("User logged in through Facebook!");
-        FB.api('/me/friends',{fields:"name,id"}, function(response) {
-        // FB.api('/me/',{fields:"name,email,picture,id,friends"}, function(response) {
-  console.log(response);
-        /*var events ={};
-            events.eName
-            events.eDescription
-            events.eDate
-            events.etime 
-            events.*/
-            
-});
-
-    }
-  },
-  error: function(user, error) {
-    alert("User cancelled the Facebook login or did not fully authorize.");
-  }
-});}
-  </script>
-</body>
+    <body style="background-color:black">
+        <div class="navbar navbar-default navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand"><img height="60" alt="Brand" src="img/photo2.png" class="img-rounded"></a>
+                    <a class="hidden-xs navbar-brand"><label style="color:white; font-size:35px; ">Your Dinner Event</label>
+                </a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <a class="navbar-brand">
+                        </a>
+                        <li>
+                            <a href="#" onclick="login();">Log in</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            Parse.initialize("mOtvpjGrdBIUBBpujn6llVOMch917NWmvZG4phYE", "ZUMGy8u0ko4oqPhWH2CwL5GqXs6kRjSjaiKTtRIT");
+              
+                window.fbAsyncInit = function() {
+                  Parse.FacebookUtils.init({
+                    appId      : '804484489650517',
+                    cookie     : true,
+                    xfbml      : true,
+                    version    : 'v2.3'
+                  });
+                };
+                (function(d, s, id){
+                   var js, fjs = d.getElementsByTagName(s)[0];
+                   if (d.getElementById(id)) {return;}
+                   js = d.createElement(s); js.id = id;
+                   js.src = "//connect.facebook.net/en_US/sdk.js";
+                   fjs.parentNode.insertBefore(js, fjs);
+                 }(document, 'script', 'facebook-jssdk'));
+              
+                function login() {
+                         Parse.FacebookUtils.logIn("user_friends,email,public_profile", {
+              success: function(user) {
+              if (!user.existed()) {
+                alert("User signed up and logged in through Facebook!");
+                  
+         
+                  FB.api('/me/',{fields:"name,email,picture,id,friends"}, function(response) {
+                    saveUserInfo(response);
+               
+                      
+              });
+                  
+                  
+                  
+              } else {
+                alert("User logged in through Facebook!");
+                  FB.api('/me/friends',{fields:"name,id"}, function(response) {
+                  // FB.api('/me/',{fields:"name,email,picture,id,friends"}, function(response) {
+              console.log(response);
+            window.localStorage.setItem("uFriends",JSON.stringify(response.data));
+                      location.pathname = 'html/Home.html';
+                      
+                      
+              });
+              }
+              },
+              error: function(user, error) {
+              alert("User cancelled the Facebook login or did not fully authorize.");
+              }
+              });}
+        </script>
+        <div class="carousel slide" id="carousel-example" data-interval="false"
+        data-ride="carousel">
+            <div class="carousel-inner" style="height:700px;">
+                <div class="item active">
+                    <img style="height:700px" src="http://www.mightymecreative.com/wp-content/uploads/2012/07/dinner-mmc.jpg">
+                    <div class="carousel-caption" style="margin-bottom:350px">
+                        <h1 class="text-inverse">Invite Facebook Friends</h1>
+                        <p>You can invite all your facebook friends who are 'Your Dinner Event' Users!!</p>
+                    </div>
+                </div>
+                <div class="item ">
+                    <img src="https://midafternoonsnack.files.wordpress.com/2013/02/20130218-125727.jpg">
+                    <div class="carousel-caption" style="margin-bottom:350px">
+                        <h2>Set Menu &amp; Share Groceries</h2>
+                        <p>You can set a menu to share with your friends who are coming to your event.
+                            You can also request them to help you bring some groceries !!</p>
+                    </div>
+                </div>
+                <div class="item ">
+                    <img src="http://ak4.picdn.net/shutterstock/videos/6451574/preview/stock-footage-young-four-friends-chatting-during-evening-dinner-at-home.jpg">
+                    <div class="carousel-caption" style="margin-bottom:450px; color:white;">
+                        <h2>View Preferred Cuisines &amp; Dietary Restrictions</h2>
+                        <p>You no longer need to ask each guest what they like or what they cannot
+                            eat. Our platform gives you this information intuitively.</p>
+                    </div>
+                </div>
+            </div>
+            <a class="left carousel-control" href="#carousel-example" data-slide="prev"><i class="icon-prev  fa fa-angle-left"></i></a>
+            <a class="right carousel-control" href="#carousel-example" data-slide="next"><i class="icon-next fa fa-angle-right"></i></a>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a class="btn btn-primary" style="margin-top:-830px; margin-left:42%" onClick = "login();">Login with Facebook</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 
 </html>
