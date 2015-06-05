@@ -293,10 +293,10 @@ function loadFriends() {
 function saveProfile() {
 
     currentUser = Parse.User.current();
-    var favtxt = $('#cuisineTxt').value();
+    var favtxt = $('#cuisineTxt').value;
     var favArr = [];
     favArr = favtxt.split(',');
-    var resText = $('#resTxt').value();
+    var resText = $('#resTxt').value;
     var resArr = [];
     resArr = resText.split(',');
     currentUser.set("favCuisine", favArr);
